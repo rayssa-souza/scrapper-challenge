@@ -11,8 +11,10 @@ const scrape = async (keyword) => {
 
   const $ = cheerio.load(response.data);
   const results = [];
+  // Grab all the products html
   const products = $(".s-card-container");
   products.each((i, elem) => {
+    // For each products attempt to find the data using the selectors
     const title = $(elem)
       .find(".s-title-instructions-style h2 span")
       .text()
